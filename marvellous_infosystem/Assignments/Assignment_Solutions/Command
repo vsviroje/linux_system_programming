@@ -1,0 +1,2 @@
+gcc fileName.c -o outputFileName
+./outputFileName
