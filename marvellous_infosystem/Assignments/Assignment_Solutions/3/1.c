@@ -16,7 +16,7 @@ int main(int argc, char *argv[])
     printf("Enter Src File name:\n");
     scanf("%s", srcFNane);
 
-     printf("Enter Dst file Name:\n");
+    printf("Enter Dst file Name:\n");
     scanf("%s", dstFNane);
 
     fdSrc = open(srcFNane, O_RDONLY);
@@ -47,8 +47,8 @@ int main(int argc, char *argv[])
 }
 
 /*
-vsviroje@viroje-Inspiron-15-7000-Gaming:~/GitRepo/GitHub/linux_system_programming/marvellous_infosystem/Assignments/Assignment_Solutions/3$ gcc 1.c 
-vsviroje@viroje-Inspiron-15-7000-Gaming:~/GitRepo/GitHub/linux_system_programming/marvellous_infosystem/Assignments/Assignment_Solutions/3$ ./a.out 
+vsviroje@viroje-Inspiron-15-7000-Gaming:~/GitRepo/GitHub/linux_system_programming/marvellous_infosystem/Assignments/Assignment_Solutions/3$ gcc 1.c
+vsviroje@viroje-Inspiron-15-7000-Gaming:~/GitRepo/GitHub/linux_system_programming/marvellous_infosystem/Assignments/Assignment_Solutions/3$ ./a.out
 Enter Src File name:
 ../2/temp_1
 Enter Dst file Name:
