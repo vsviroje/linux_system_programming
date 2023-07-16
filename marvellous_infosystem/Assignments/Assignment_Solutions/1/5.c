@@ -49,6 +49,13 @@ int byteCountFinalizer(int *nBytes)
         return zero;
     }
 
+    if (*nBytes < BLOCKSIZE)
+    {
+        bSize = *nBytes;
+        *nBytes = zero;
+        return bSize;
+    }
+
     *nBytes = *nBytes - BLOCKSIZE;
 
     if (*nBytes < 0)
@@ -56,6 +63,7 @@ int byteCountFinalizer(int *nBytes)
         bSize = -*nBytes;
         *nBytes = zero;
     }
+
     return bSize;
 }
 
@@ -63,7 +71,7 @@ int byteCountFinalizer(int *nBytes)
 [BLOCKSIZE:10]
 
 vsviroje@viroje-Inspiron-15-7000-Gaming:~/GitRepo/GitHub/linux_system_programming/marvellous_infosystem/Assignments/Assignment_Solutions/1$ gcc 5.c
-vsviroje@viroje-Inspiron-15-7000-Gaming:~/GitRepo/GitHub/linux_system_programming/marvellous_infosystem/Assignments/Assignment_Solutions/1$ ./a.out 
+vsviroje@viroje-Inspiron-15-7000-Gaming:~/GitRepo/GitHub/linux_system_programming/marvellous_infosystem/Assignments/Assignment_Solutions/1$ ./a.out
 File name:
 5.c
 Num of Bytes:

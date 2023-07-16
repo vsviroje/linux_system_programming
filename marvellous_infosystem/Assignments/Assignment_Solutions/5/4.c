@@ -11,10 +11,12 @@
 struct FileInfo
 {
     char FileName[20];
-    // int FileSize;
+    int FileSize;
 };
 int main(int argc, char *argv[])
 {
+    int byteCountFinalizer(int *nBytes);
+
     DIR *dp = NULL;
     struct dirent *entry = NULL;
     struct stat sobj;
@@ -74,17 +76,16 @@ int main(int argc, char *argv[])
             }
 
             strcpy(fileInfo.FileName, entry->d_name);
-            
+            fileInfo.FileSize = sobj.st_size;
+
             write(fdOut, &fileInfo, sizeof(fileInfo));
-            write(fdOut, "\n", strlen(FileNameSeparator));
             while ((ret = read(fd, buffer, sizeof(buffer))) != 0)
             {
                 write(fdOut, buffer, ret);
-                // printf("\nbuffer:%s", buffer);
                 memset(buffer, 0, sizeof(buffer));
             }
-            write(fdOut, FileSeparator, strlen(FileSeparator));
 
+            // printf("file added:%s\n", entry->d_name);
             close(fd);
         }
     }
@@ -92,20 +93,52 @@ int main(int argc, char *argv[])
     close(fdOut);
     closedir(dp);
 
-    fd = open(OutFileName, O_RDONLY);
-    if (fd == -1)
-    {
-        printf("Unable to open file\n");
-        return -1;
-    }
-
-    while ((ret = read(fd, buffer, sizeof(buffer))) != 0)
-    {
-        printf("%s", buffer);
-    }
-    close(fd);
-
     return 0;
 }
+
+int byteCountFinalizer(int *nBytes)
+{
+    int zero = 0;
+    int bSize = BLOCKSIZE;
+
+    if (nBytes == NULL || *nBytes == 0)
+    {
+        return zero;
+    }
+
+    if (*nBytes < BLOCKSIZE)
+    {
+        bSize = *nBytes;
+        *nBytes = zero;
+        return bSize;
+    }
+
+    *nBytes = *nBytes - BLOCKSIZE;
+
+    if (*nBytes < 0)
+    {
+        bSize = -*nBytes;
+        *nBytes = zero;
+    }
+
+    return bSize;
+}
+
 /*
+vsviroje@viroje-Inspiron-15-7000-Gaming:~/GitRepo/GitHub/linux_system_programming/marvellous_infosystem/Assignments/Assignment_Solutions/4$ gcc 4.c
+vsviroje@viroje-Inspiron-15-7000-Gaming:~/GitRepo/GitHub/linux_system_programming/marvellous_infosystem/Assignments/Assignment_Solutions/4$ ./a.out
+Directory name:
+.
+filePath:./5.c
+filePath:./3.c
+filePath:./4.c
+filePath:./a.out
+filePath:./temp2_dir
+filePath:./..
+filePath:./2.c
+filePath:./temp1_dir
+filePath:./.
+filePath:./Demo.txt
+Continued:./Demo.txt
+filePath:./1.c
  */
