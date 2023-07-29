@@ -1,0 +1,2 @@
+demo.txt has number of uppercase:44
+hello.txt has number of uppercase:17

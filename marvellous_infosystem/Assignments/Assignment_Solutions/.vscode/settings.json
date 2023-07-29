@@ -4,6 +4,7 @@
         "stdlib.h": "c",
         "stdio.h": "c",
         "stat.h": "c",
-        "fcntl.h": "c"
+        "fcntl.h": "c",
+        "resource.h": "c"
     }
 }
