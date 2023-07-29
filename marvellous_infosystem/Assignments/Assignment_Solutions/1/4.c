@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     fd = open(fName, O_RDONLY);
     fstat(fd, &sobj);
 
-    printf("File Name:%s\n", argv[1]);
+    printf("File Name:%s\n", fName);
     printf("File size:%ld\n", sobj.st_size);
     printf("Number of links:%ld\n", sobj.st_nlink);
     printf("Inode number:%ld\n", sobj.st_ino);
@@ -33,7 +33,7 @@ vsviroje@viroje-Inspiron-15-7000-Gaming:~/GitRepo/GitHub/linux_system_programmin
 vsviroje@viroje-Inspiron-15-7000-Gaming:~/GitRepo/GitHub/linux_system_programming/marvellous_infosystem/Assignments/Assignment_Solutions/1$ ./a.out 
 File name:
 4.c
-File Name:(null)
+File Name:4.c
 File size:617
 Number of links:1
 Inode number:3941386

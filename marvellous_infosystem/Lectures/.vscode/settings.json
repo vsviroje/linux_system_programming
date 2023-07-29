@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "dirent.h": "c",
+        "stat.h": "c",
+        "fcntl.h": "c",
+        "unistd.h": "c",
+        "command": "c",
+        "sharedfile.h": "c"
+    }
+}
