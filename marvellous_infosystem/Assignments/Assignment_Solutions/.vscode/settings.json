@@ -5,6 +5,7 @@
         "stdio.h": "c",
         "stat.h": "c",
         "fcntl.h": "c",
-        "resource.h": "c"
+        "resource.h": "c",
+        "pthread.h": "c"
     }
 }
