@@ -1,2 +1,29 @@
 gcc fileName.c -o outputFileName
 ./outputFileName
+
+//Dynamic link lib
+    //generate .c to .o file
+    gcc -c -fPIC sharedFile.c
+    //generate .o to .so file
+    gcc -shared -o library.so sharedFile.o
+    //display info .so file
+    nm -g library.so
+    //run code
+    gcc client.c  -rdynamic -o myexe
+    //or
+    gcc client.c  -ldl -o myexe
+    ./myexe
+
+//Static link lib
+    //to generate .c to .o file
+    gcc -c sharedFile.c -o sharedFile.o
+    //to generate .o to .a file
+    ar rcs sharedFile.a sharedFile.o
+    //run code
+    gcc -static client.c -o myexe sharedFile.a
+    ./myexe
+
+//thread
+        gcc -pthread fileName.c
+    //or
+        gcc fileName.c -lpthread
