@@ -23,3 +23,6 @@ gcc fileName.c -o outputFileName
     //run code
     gcc -static client.c -o myexe sharedFile.a
     ./myexe
+
+//thread
+    gcc -pthread fileName.c 
