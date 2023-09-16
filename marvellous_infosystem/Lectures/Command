@@ -25,4 +25,20 @@ gcc fileName.c -o outputFileName
     ./myexe
 
 //thread
-    gcc -pthread fileName.c 
+        gcc -pthread fileName.c
+    //or
+        gcc fileName.c -lpthread
+        
+//Kernel module
+    //Note: makefile must be present along the kernel module source code
+    //      `MODULE_LICENSE("GPL");`before running add this line at end of kernel module source code
+    make                                            // to generate kernel object file
+    sudo insmod hello-1.ko                          // insert kernel module
+    or
+    sudo insmod hello-1.ko  variableName=value      // insert kernel module with parameter
+    sudo modinfo hello-1.ko                         // display info of kernel module
+    lsmod                                           //to check hello-1 ie kernel module is inserted or not
+    dmesg                                           //to check output of inserted kernel module in kernel log
+    sudo rmmod hello_1                              //to remove the kernel module
+    lsmod                                           //to check hello-1 ie kernel module is removed or not
+    dmesg                                           //to check output of removed kernel module in kernel log
