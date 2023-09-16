@@ -30,7 +30,7 @@ int main()
 	char buff3[13];
 
 	// Opening newly created file
-	fd = open("new1.txt",O_RDONLY);
+	fd = open("file.txt",O_RDONLY);
 	if(fd == -1)
 	{
 		printf("Unable to open file\n");

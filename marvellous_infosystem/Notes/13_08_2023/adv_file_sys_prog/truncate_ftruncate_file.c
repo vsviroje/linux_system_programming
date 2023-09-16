@@ -24,7 +24,7 @@ int main( )
 	}
 
 	// For the truncaion purpose file must be opened in write mode
-	fd = open("new.txt",O_RDWR);
+	fd = open("file.txt",O_RDWR);
 	if(fd == -1)
 	{
 		printf("Unable to open file\n");

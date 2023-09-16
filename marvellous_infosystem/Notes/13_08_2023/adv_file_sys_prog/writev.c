@@ -29,7 +29,7 @@ int main()
 	char buff3[] = "Third string.";
 
 	// Opening newly created file
-	fd = open("writev_demo.txt",O_WRONLY | O_CREAT);
+	fd = open("file.txt",O_RDWR | O_CREAT);
 	if(fd == -1)
 	{
 		printf("Unable to open file\n");
