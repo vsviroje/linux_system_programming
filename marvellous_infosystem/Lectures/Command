@@ -42,3 +42,7 @@ gcc fileName.c -o outputFileName
     sudo rmmod hello_1                              //to remove the kernel module
     lsmod                                           //to check hello-1 ie kernel module is removed or not
     dmesg                                           //to check output of removed kernel module in kernel log
+
+//manual cmd to create device file    
+    //mknod NAME TYPE MAJOR MINOR
+	sudo mknod viroje c 11 20
